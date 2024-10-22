@@ -2,19 +2,19 @@
 
 [![npm](https://img.shields.io/npm/v/@tomjs/vite-plugin-iconify)](https://www.npmjs.com/package/@tomjs/vite-plugin-iconify) ![node-current (scoped)](https://img.shields.io/node/v/@tomjs/vite-plugin-iconify) ![NPM](https://img.shields.io/npm/l/@tomjs/vite-plugin-iconify) [![Docs](https://img.shields.io/badge/API-unpkg-orange)](https://www.unpkg.com/browse/@tomjs/vite-plugin-iconify/dist/index.d.ts)
 
-> vite 插件，用于处理 iconify 图标集，在无法访问公网的环境下使用
+> vite 插件，用于处理 iconify 图标集，在无法访问公网的环境下使用，可以识别到项目中使用到的图标，进行按需下载到项目中
 
 ## 安装
 
 ```bash
 # pnpm
-pnpm add @iconify/json vite-plugin-iconify-plus -D
+pnpm add @iconify/json @iconify/utils vite-plugin-iconify-plus -D
 
 # yarn
-yarn add @iconify/json vite-plugin-iconify-plus -D
+yarn add @iconify/json @iconify/utils vite-plugin-iconify-plus -D
 
 # npm
-npm i @iconify/json vite-plugin-iconify-plus --save-dev
+npm i @iconify/json @iconify/utils vite-plugin-iconify-plus --save-dev
 ```
 
 ## 使用说明
@@ -27,15 +27,11 @@ npm i @iconify/json vite-plugin-iconify-plus --save-dev
 
 ```js
 import { defineConfig } from 'vite';
-import iconify from '@tomjs/vite-plugin-iconify';
+import iconify from 'vite-plugin-iconify-plus';
 
 export default defineConfig({
   plugins: [
-    iconify({
-      resources: ['https://unpkg.com/@iconify/json/json'],
-      rotate: 3000,
-      local: ['ant-design', 'ep'],
-    }),
+    iconify(),
   ],
 });
 ```
